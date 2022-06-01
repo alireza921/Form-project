@@ -1,10 +1,10 @@
 import "./App.css";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
 
 function App() {
   return (
     <div className='App'>
-      <h2>Form validation</h2> 
-      <h3> whit Formik Library </h3>
+      <SignUpForm />
     </div>
   );
 }
