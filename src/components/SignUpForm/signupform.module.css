@@ -22,18 +22,26 @@ margin: 10px 5px;
     font-weight: bold;
     color: #3735ab;
     width: 380px;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-    align-items: center;
+    align-items: center; */
 
 }
 
-/* .inputContainer label { 
-    font-size: 18px;
-    color: #152aaa;
-} */
+.err { 
+    font-size: 12px;
+    margin-top: 3px;
+    color: #eb3434;
+}
+
+.inputContainer label { 
+    /* font-size: 18px; */
+    /* color: #152aaa; */
+    display: inline-block;
+    width: 75px;
+}
 
 .inputContainer input { 
     width: 250px;
