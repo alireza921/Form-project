@@ -1,0 +1,11 @@
+.radio { 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.err { 
+    font-size: 12px;
+    margin-top: 3px;
+    color: #eb3434;
+}
