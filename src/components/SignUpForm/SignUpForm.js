@@ -1,6 +1,15 @@
 import { useFormik } from "formik";
 import styles from "./signupform.module.css";
 import * as yup from "yup";
+import Input from "../../common/inputComponent/inputComponent";
+
+const inputValue = [
+  { label: "Name", type: "text", name: "name" },
+  { label: "Email", type: "email", name: "email" },
+  { label: "Phone Number", type: "phoneNumber", name: "phoneNumber" },
+  { label: "Password", type: "text", name: "password" },
+  { label: "PasswordConfirmation", type: "text", name: "passwordConfirmation" },
+];
 
 const initialValues = {
   name: "",
@@ -54,58 +63,7 @@ const SignUpForm = () => {
   return (
     <section className={styles.holder}>
       <form onSubmit={formik.handleSubmit} className={styles.container}>
-        <div className={styles.inputContainer}>
-          <label> name </label>
-          <input {...formik.getFieldProps("name")} type='text' name='name' />
-          {formik.errors.name && formik.touched.name && (
-            <div className={styles.err}> {formik.errors.name} </div>
-          )}
-        </div>
-
-        <div className={styles.inputContainer}>
-          <label> email </label>
-          <input {...formik.getFieldProps("email")} type='email' name='email' />
-          {formik.errors.email && formik.touched.email && (
-            <div className={styles.err}> {formik.errors.email} </div>
-          )}
-        </div>
-
-        <div className={styles.inputContainer}>
-          <label> PhoneNumber </label>
-          <input
-            {...formik.getFieldProps("phoneNumber")}
-            type='phoneNumber'
-            name='phoneNumber'
-          />
-          {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-            <div className={styles.err}> {formik.errors.phoneNumber} </div>
-          )}
-        </div>
-
-        <div className={styles.inputContainer}>
-          <label> password </label>
-          <input
-            {...formik.getFieldProps("password")}
-            type='text'
-            name='password'
-          />
-          {formik.errors.password && formik.touched.password && (
-            <div className={styles.err}> {formik.errors.password} </div>
-          )}
-        </div>
-
-        <div className={styles.inputContainer}>
-          <label> password Confirmation</label>
-          <input
-            {...formik.getFieldProps("passwordConfirmation")}
-            type='text'
-            name='passwordConfirmation'
-          />
-          {formik.errors.passwordConfirmation && formik.touched.passwordConfirmation && (
-            <div className={styles.err}> {formik.errors.passwordConfirmation} </div>
-          )}
-        </div>
-
+        <Input inputValue={inputValue} formik={formik} />
         <div>
           <button type='submit' className={styles.btn}>
             Submit
