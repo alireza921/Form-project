@@ -1,0 +1,20 @@
+.checkboxHolder { 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 12px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+.checkboxContainer { 
+margin: 3px 5px;
+}
+
+
+.err { 
+    font-size: 12px;
+    margin-top: 3px;
+    color: #eb3434;
+}

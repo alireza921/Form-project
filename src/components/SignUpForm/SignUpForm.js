@@ -57,13 +57,13 @@ const validationSchema = yup.object({
     .min(11, "minimum 11 number")
     .required("phone Number is required")
     .matches(phoneRegExp, "Phone number is not valid"),
-    gender : yup.string().required('gender is required') , 
-    interests : yup.array().min(1).required('interests is required')
+  gender: yup.string().required("gender is required"),
+  interests: yup.array().min(1).required("interests is required"),
 });
 
 const SignUpForm = () => {
   const onSubmit = (values, { resetForm }) => {
-    console.log(values);
+    console.log("values");
     resetForm({ values: "" });
   };
 
@@ -71,18 +71,26 @@ const SignUpForm = () => {
     initialValues,
     onSubmit,
     validationSchema,
+    validateOnMount: true,
   });
 
-  console.log("visited Fields", formik.values);
+  // console.log("visited Fields", formik.values);
 
   return (
     <section className={styles.holder}>
       <form onSubmit={formik.handleSubmit} className={styles.container}>
         <Input inputValue={inputValue} formik={formik} />
         <RadioComponent radioInput={radioInput} formik={formik} name='gender' />
-        <CheckBoxInput checkBoxValue={checkBoxValue} name='interests' formik={formik} />
+        <CheckBoxInput
+          checkBoxValue={checkBoxValue}
+          name='interests'
+          formik={formik}
+        />
         <div>
-          <button type='submit' className={styles.btn}>
+          <button
+            type='submit'
+            className={formik.isValid ? styles.btn : styles.disabled }
+            disabled={!formik.isValid}>
             Submit
           </button>
         </div>
